@@ -27,3 +27,6 @@ document.addEventListener('mouseleave', () => {
     bg.style.filter =
         `drop-shadow(0 20px 40px rgba(0,0,0,0.6))`;
 });
+bg.addEventListener('click', () => {
+    window.location.href = "https://chzzk.naver.com/64d76089fba26b180d9c9e48a32600d9";
+});
