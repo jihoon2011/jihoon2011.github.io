@@ -5,15 +5,20 @@
     background-image: url("images/book_ki.jpg");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 85%;
+    background-size: 70%;
+
+    /* 🔥 화면 밖으로 안 나가게 */
+    max-width: 100vw;
+    max-height: 100vh;
+
+    /* 🔥 기본 크기 축소 */
+    transform: scale(0.9);
+    transform-style: preserve-3d;
 
     filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
 
-    transition:
-        transform 0.15s ease-out,
-        filter 0.15s ease-out;
-
-    transform-style: preserve-3d;
+    transition: transform 0.15s ease-out, filter 0.15s ease-out;
     will-change: transform, filter;
+
     cursor: pointer;
 }
