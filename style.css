@@ -1,24 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background: black;
+    overflow: hidden;
+}
+
+/* 메인 배경 */
 .bg {
     width: 100vw;
     height: 100vh;
 
+    /* 이미지 */
     background-image: url("images/book_ki.jpg");
     background-repeat: no-repeat;
     background-position: center;
+
+    /* 🔥 이미지 크기 (과하지 않게) */
     background-size: 70%;
 
-    /* 🔥 화면 밖으로 안 나가게 */
-    max-width: 100vw;
-    max-height: 100vh;
-
-    /* 🔥 기본 크기 축소 */
-    transform: scale(0.9);
-    transform-style: preserve-3d;
-
+    /* 🔥 그림자 */
     filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
 
-    transition: transform 0.15s ease-out, filter 0.15s ease-out;
+    /* 애니메이션 */
+    transition:
+        transform 0.15s ease-out,
+        filter 0.15s ease-out;
+
+    transform-style: preserve-3d;
     will-change: transform, filter;
 
+    /* 클릭 가능 표시 */
     cursor: pointer;
 }
