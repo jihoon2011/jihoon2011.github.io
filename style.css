@@ -1,17 +1,18 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: black; /* 여백 색 (선택) */
+  width: 100%;
+  height: 100%;
+  background: black;
 }
 
-/* 🔥 화질 안전 이미지 */
-.safe-img {
+/* 🔥 화면 안에 딱 맞게, 절대 확대 안 됨 */
+.fit-img {
+  width: 100vw;
+  height: 100vh;
+
+  object-fit: contain;   /* 핵심 */
+  object-position: center;
+
   display: block;
-  margin: 40px auto;   /* 가운데 */
-  
-  max-width: 90vw;     /* 화면의 90%까지만 */
-  max-height: 90vh;    /* 화면의 90%까지만 */
-  
-  width: auto;         /* 원본 비율 유지 */
-  height: auto;
 }
