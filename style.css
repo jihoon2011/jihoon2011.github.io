@@ -1,16 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html, body {
-    width: 100%;
-    height: 100%;
-    background: black;
-    overflow: hidden;
-}
-
 .bg {
     width: 100vw;
     height: 100vh;
@@ -18,11 +5,8 @@ html, body {
     background-image: url("images/book_ki.jpg");
     background-repeat: no-repeat;
     background-position: center;
-
-    /* 👇 살짝 더 축소 */
     background-size: 85%;
 
-    /* 👇 그림자 */
     filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
 
     transition:
@@ -30,4 +14,6 @@ html, body {
         filter 0.15s ease-out;
 
     transform-style: preserve-3d;
+    will-change: transform, filter;
+    cursor: pointer;
 }
