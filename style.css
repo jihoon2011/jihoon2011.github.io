@@ -1,20 +1,17 @@
-/* 기본 리셋 */
-* {
-  box-sizing: border-box;
-}
-
 html, body {
   margin: 0;
   padding: 0;
+  background: black; /* 여백 색 (선택) */
 }
 
-/* 배경 꽉 차게 */
-.bg {
-  width: 100%;
-  min-height: 100vh;
-
-  background-image: url("images/book_ki.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+/* 🔥 화질 안전 이미지 */
+.safe-img {
+  display: block;
+  margin: 40px auto;   /* 가운데 */
+  
+  max-width: 90vw;     /* 화면의 90%까지만 */
+  max-height: 90vh;    /* 화면의 90%까지만 */
+  
+  width: auto;         /* 원본 비율 유지 */
+  height: auto;
 }
