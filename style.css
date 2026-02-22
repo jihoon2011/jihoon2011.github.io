@@ -11,15 +11,13 @@ html, body {
     font-family: sans-serif;
 }
 
-/* ===== PC ===== */
+/* ===== PC 그리드 ===== */
 .grid {
     width: 100vw;
     height: 100vh;
-
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(2, 1fr);
-
     gap: 16px;
     padding: 16px;
 }
@@ -31,7 +29,6 @@ html, body {
     border-radius: 16px;
     cursor: pointer;
     overflow: hidden;
-
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -51,8 +48,8 @@ html, body {
 }
 
 .center-card img {
-    width: 10px;
-    height: 10px;
+    width: 40px;  /* 작게 조정 */
+    height: 40px; /* 작게 조정 */
     animation: spin 6s linear infinite;
     cursor: pointer;
 }
@@ -84,4 +81,3 @@ html, body {
         grid-row: auto;
     }
 }
-
