@@ -11,7 +11,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-coler:black
+    background:#000;
 
     /* 배경 이미지 적용 */
     background-image: url('images/background.jpg'); /* 경로 확인 */
@@ -90,4 +90,5 @@ html, body {
         aspect-ratio: 3/4;
     }
 }
+
 
