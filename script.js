@@ -36,5 +36,4 @@ cards.forEach(card => {
         const link = card.dataset.link;
         if (link) window.location.href = link;
     });
-
 });
