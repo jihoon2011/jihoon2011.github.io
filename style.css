@@ -4,14 +4,13 @@
     box-sizing: border-box;
 }
 
-/* ===== PC 기본 ===== */
 html, body {
     width: 100%;
     height: 100%;
-    background: black;
-    overflow: hidden; /* PC는 스크롤 없음 */
+    background: #000;
 }
 
+/* ===== PC ===== */
 .grid {
     width: 100vw;
     height: 100vh;
@@ -20,40 +19,65 @@ html, body {
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(2, 1fr);
 
-    gap: 20px;
-    padding: 32px;
+    gap: 16px;
+    padding: 16px;
 }
 
 .card {
-    background-repeat: no-repeat;
+    position: relative;
+    background-size: cover;
     background-position: center;
-    background-size: contain;
-
-    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.6));
-
-    transition: transform 0.15s ease-out, filter 0.15s ease-out;
-    transform-style: preserve-3d;
-    will-change: transform, filter;
-
+    border-radius: 16px;
     cursor: pointer;
+    overflow: hidden;
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* ===== 모바일 (스크롤) ===== */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+}
+
+/* ===== 정가운데 추가 이미지 ===== */
+.center-rotating {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: 80px;
+    height: 80px;
+
+    cursor: pointer;
+    pointer-events: auto;
+
+    animation: spin 6s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* ===== 모바일 ===== */
 @media (max-width: 768px) {
     html, body {
         height: auto;
-        overflow-y: auto; /* 🔥 모바일 스크롤 ON */
+        overflow-y: auto;
     }
 
     .grid {
         height: auto;
-        grid-template-columns: 1fr;
-        grid-template-rows: none;
-
-        padding: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
     }
 
     .card {
-        height: 60vw; /* 카드 크기 */
+        aspect-ratio: 3/4;
     }
 }
