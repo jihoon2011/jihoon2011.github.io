@@ -1,35 +1,40 @@
-const bg = document.querySelector('.bg');
+const cards = document.querySelectorAll('.card');
 
-document.addEventListener('mousemove', (e) => {
-    const x = e.clientX - window.innerWidth / 2;
-    const y = e.clientY - window.innerHeight / 2;
+cards.forEach(card => {
 
-    const rotateX = (-y / window.innerHeight) * 6; // 각도도 살짝 줄임
-    const rotateY = (x / window.innerWidth) * 6;
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
 
-    bg.style.transform = `
-        perspective(1000px)
-        scale(0.85)
-        rotateX(${rotateX}deg)
-        rotateY(${rotateY}deg)
-    `;
+        const rotateX = (-y / rect.height) * 6;
+        const rotateY = (x / rect.width) * 6;
 
-    bg.style.filter =
-        `drop-shadow(${ -rotateY * 2 }px ${ rotateX * 2 }px 50px rgba(0,0,0,0.7))`;
-});
+        card.style.transform = `
+            perspective(800px)
+            scale(0.9)
+            rotateX(${rotateX}deg)
+            rotateY(${rotateY}deg)
+        `;
 
-bg.addEventListener('mouseleave', () => {
-    bg.style.transform = `
-        perspective(1000px)
-        scale(0.85)
-        rotateX(0deg)
-        rotateY(0deg)
-    `;
+        card.style.filter =
+            `drop-shadow(${ -rotateY * 2 }px ${ rotateX * 2 }px 40px rgba(0,0,0,0.7))`;
+    });
 
-    bg.style.filter =
-        `drop-shadow(0 20px 40px rgba(0,0,0,0.6))`;
-});
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = `
+            perspective(800px)
+            scale(0.9)
+            rotateX(0deg)
+            rotateY(0deg)
+        `;
+        card.style.filter =
+            `drop-shadow(0 15px 30px rgba(0,0,0,0.6))`;
+    });
 
-bg.addEventListener('click', () => {
-    window.location.href = "https://chzzk.naver.com/64d76089fba26b180d9c9e48a32600d9";
+    card.addEventListener('click', () => {
+        const link = card.dataset.link;
+        if (link) window.location.href = link;
+    });
+
 });
