@@ -11,30 +11,38 @@ html, body {
     overflow: hidden;
 }
 
-/* 메인 배경 */
-.bg {
+/* 전체 그리드 */
+.grid {
     width: 100vw;
     height: 100vh;
 
-    /* 이미지 */
-    background-image: url("images/book_ki.jpg");
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    gap: 20px;
+    padding: 32px;
+}
+
+/* 카드 */
+.card {
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
 
-    /* 🔥 이미지 크기 (과하지 않게) */
-    background-size: 70%;
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.6));
 
-    /* 🔥 그림자 */
-    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
-
-    /* 애니메이션 */
-    transition:
-        transform 0.15s ease-out,
-        filter 0.15s ease-out;
-
+    transition: transform 0.15s ease-out, filter 0.15s ease-out;
     transform-style: preserve-3d;
     will-change: transform, filter;
 
-    /* 클릭 가능 표시 */
     cursor: pointer;
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+    }
 }
