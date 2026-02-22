@@ -3,7 +3,7 @@ const centerImg = document.querySelector('.center-rotating');
 
 cards.forEach(card => {
 
-    // 카드 마우스 오버 회전 효과
+    // 카드 마우스 오버 3D 회전
     card.addEventListener('mousemove', (e) => {
         if(card.classList.contains('center-card')) return; // 중앙 카드는 회전 제외
 
