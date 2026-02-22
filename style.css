@@ -51,8 +51,8 @@ html, body {
 }
 
 .center-card img {
-    width: 60px;
-    height: 60px;
+    width: 10px;
+    height: 10px;
     animation: spin 6s linear infinite;
     cursor: pointer;
 }
@@ -84,3 +84,4 @@ html, body {
         grid-row: auto;
     }
 }
+
