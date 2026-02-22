@@ -8,10 +8,9 @@ html, body {
     width: 100%;
     height: 100%;
     background: #000;
-    font-family: sans-serif;
 }
 
-/* ===== PC 그리드 ===== */
+/* 그리드 */
 .grid {
     width: 100vw;
     height: 100vh;
@@ -37,20 +36,41 @@ html, body {
     box-shadow: 0 15px 30px rgba(0,0,0,0.6);
 }
 
-/* ===== 중앙 카드 ===== */
-.center-card {
-    grid-column: 3;
-    grid-row: 1 / 3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #222;
+/* 항상 위로 표시할 카드 */
+.top-card {
+    position: relative;
+    z-index: 10;  /* 다른 카드 위로 */
 }
 
-.center-card img {
-    width: 40px;  /* 작게 조정 */
-    height: 40px; /* 작게 조정 */
+/* 중앙 회전 이미지 */
+.center-rotating {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
     animation: spin 6s linear infinite;
+    z-index: 1000;  /* 카드 위로 항상 표시 */
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+
+    .card {
+        aspect-ratio: 3/4;
+    }
+}
     cursor: pointer;
 }
 
@@ -81,3 +101,4 @@ html, body {
         grid-row: auto;
     }
 }
+
