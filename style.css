@@ -1,16 +1,18 @@
+/* 초기화 */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* 배경 검정 */
 html, body {
     width: 100%;
     height: 100%;
-    background: #000;  /* 검정색 배경 */
+    background: #000;
 }
 
-/* 그리드 레이아웃 */
+/* 그리드 */
 .grid {
     width: 100vw;
     height: 100vh;
@@ -21,6 +23,7 @@ html, body {
     padding: 16px;
 }
 
+/* 카드 */
 .card {
     position: relative;
     background-size: cover;
@@ -31,44 +34,68 @@ html, body {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* 기본 카드 90% */
 .small-card {
     transform: scale(0.9);
 }
 
+/* hover */
 .card:hover {
     transform: scale(1.05);
     box-shadow: 0 15px 30px rgba(0,0,0,0.6);
 }
 
+/* 위로 올라온 카드 */
 .top-card {
-    position: relative;
     z-index: 10;
 }
 
+/* 중앙 회전 이미지 */
 .center-rotating {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
     width: 50px;
     height: 50px;
-    cursor: pointer;
+    transform: translate(-50%, -50%);
     animation: spin 6s linear infinite;
+    cursor: pointer;
     z-index: 1000;
 }
 
+/* 회전 */
 @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to   { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
+/* ===== 모바일 ===== */
 @media (max-width: 768px) {
+
+    html, body {
+        height: auto;
+        overflow-y: auto;
+    }
+
     .grid {
+        height: auto;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto;
+        gap: 12px;
+        padding: 12px;
     }
 
     .card {
-        aspect-ratio: 3/4;
+        aspect-ratio: 3 / 4;
+        transform: scale(0.8);
+    }
+
+    .card:hover {
+        transform: scale(0.8);
+        box-shadow: none;
+    }
+
+    .center-rotating {
+        width: 40px;
+        height: 40px;
     }
 }
